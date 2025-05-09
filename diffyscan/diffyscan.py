@@ -238,9 +238,7 @@ def process_config(
         )
         explorer_token = os.getenv("ETHERSCAN_EXPLORER_TOKEN", default=None)
     if explorer_token is None:
-        logger.warn(
-            'Failed to find explorer token in env ("ETHERSCAN_EXPLORER_TOKEN")'
-        )
+        logger.warn('Failed to find explorer token in env ("ETHERSCAN_EXPLORER_TOKEN")')
 
     github_api_token = os.getenv("GITHUB_API_TOKEN", "")
     if not github_api_token:
@@ -272,14 +270,15 @@ def process_config(
                     contract_address,
                     contract_name,
                 )
-                run_source_diff(
-                    contract_address,
-                    contract_code,
-                    config,
-                    github_api_token,
-                    recursive_parsing,
-                    unify_formatting,
-                )
+                # Temportary disable source code diff
+                # run_source_diff(
+                #     contract_address,
+                #     contract_code,
+                #     config,
+                #     github_api_token,
+                #     recursive_parsing,
+                #     unify_formatting,
+                # )
                 if enable_binary_comparison:
                     run_bytecode_diff(
                         contract_address,

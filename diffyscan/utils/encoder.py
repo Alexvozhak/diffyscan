@@ -280,7 +280,7 @@ def encode_constructor_arguments(constructor_abi: list, constructor_config_args:
 
             elif re.match(r"^(u?int)(\d*)$", arg_type):
                 bits, is_signed = _parse_solidity_int_type(arg_type)
-                constructor_calldata += encode_int(int(arg_value), bits, is_signed)
+                constructor_calldata += encode_int(int(arg_value, 16), bits, is_signed)
 
             elif re.match(r"^bytes(\d+)$", arg_type):
                 match_len = re.match(r"^bytes(\d+)$", arg_type)
